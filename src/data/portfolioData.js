@@ -197,7 +197,7 @@ export const projects = [
     monitoring: "CloudWatch metrics dashboard for CPU/Memory utilization, ALB response time, and SNS notifications for unhealthy host events.",
     cost: "Serverless Fargate compute charged per vCPU/GB second; auto-scaling scales task count down during off-peak periods.",
     lessons: "Deepened practical skills in container hardening, multi-stage builds, VPC subnetting/CIDR, ALB target groups, and separating Task Execution vs Task Roles.",
-    githubUrl: "https://github.com/priyanshzx/REPLACE_WITH_PROJECT_REPOSITORY",
+    githubUrl: "https://github.com/Priyanshzx/task-tracker",
     demoUrl: "#",
     demoLabel: "Demo coming soon",
     diagramType: "docker"
