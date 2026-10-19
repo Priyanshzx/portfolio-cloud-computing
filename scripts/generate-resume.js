@@ -16,8 +16,8 @@ async function generateResumePdf() {
   const grayColor = rgb(0.35, 0.4, 0.45);
   const bodyColor = rgb(0.15, 0.2, 0.25);
 
-  let y = height - 42;
-  const margin = 45;
+  let y = height - 38;
+  const margin = 42;
   const maxRight = width - margin;
 
   // Header - Name
@@ -29,26 +29,26 @@ async function generateResumePdf() {
     color: primaryColor,
   });
 
-  y -= 16;
-  page.drawText('Jaunpur / Prayagraj, Uttar Pradesh, India', {
-    x: margin,
-    y: y,
-    size: 9.5,
-    font: fontRegular,
-    color: grayColor,
-  });
-
-  y -= 14;
-  const contactText = '+91-8738831723  |  yspriyanshu07@gmail.com  |  linkedin.com/in/priyansh-yadav-090a97350  |  github.com/priyanshzx';
-  page.drawText(contactText, {
+  y -= 15;
+  page.drawText('Jaunpur / Prayagraj, Uttar Pradesh, India   |   +91-8738831723   |   yspriyanshu07@gmail.com', {
     x: margin,
     y: y,
     size: 8.5,
     font: fontRegular,
+    color: grayColor,
+  });
+
+  y -= 13;
+  const linkRow = 'Portfolio: portfolio-cloud-computing-eta.vercel.app   |   LinkedIn: linkedin.com/in/priyansh-yadav-090a97350   |   GitHub: github.com/priyanshzx';
+  page.drawText(linkRow, {
+    x: margin,
+    y: y,
+    size: 8,
+    font: fontRegular,
     color: accentColor,
   });
 
-  y -= 10;
+  y -= 8;
   page.drawLine({
     start: { x: margin, y: y },
     end: { x: maxRight, y: y },
@@ -58,11 +58,11 @@ async function generateResumePdf() {
 
   // Helper for Section Titles
   function drawSectionTitle(title) {
-    y -= 18;
+    y -= 16;
     page.drawText(title.toUpperCase(), {
       x: margin,
       y: y,
-      size: 10.5,
+      size: 10,
       font: fontBold,
       color: primaryColor,
     });
@@ -73,11 +73,11 @@ async function generateResumePdf() {
       thickness: 0.6,
       color: rgb(0.75, 0.8, 0.85),
     });
-    y -= 10;
+    y -= 9;
   }
 
   // Text wrapper helper
-  function drawWrappedText(text, x, size, font, color, maxW = maxRight - x, lineSpacing = 11.5) {
+  function drawWrappedText(text, x, size, font, color, maxW = maxRight - x, lineSpacing = 11) {
     const words = text.split(' ');
     let currentLine = '';
 
@@ -100,7 +100,7 @@ async function generateResumePdf() {
 
   // Professional Summary
   drawSectionTitle('Professional Summary');
-  const summary = 'Cloud Computing enthusiast (BCA student) with hands-on AWS experience — event-driven serverless pipelines (Lambda, SQS, DynamoDB) and a containerized microservice on ECS Fargate with auto-scaling and monitoring. Skilled in IAM, VPC, and Infrastructure as Code (SAM/CloudFormation). Seeking an entry-level Cloud/DevOps role to apply practical, project-tested AWS skills.';
+  const summary = 'Cloud Computing enthusiast (BCA student) with hands-on AWS experience — event-driven serverless pipelines (Lambda, SQS, DynamoDB) and containerized microservices on ECS Fargate with auto-scaling and monitoring. Skilled in IAM least privilege, VPC networking, and Infrastructure as Code (SAM/CloudFormation). Seeking an entry-level Cloud/DevOps role to apply project-tested AWS skills.';
   drawWrappedText(summary, margin, 8.5, fontRegular, bodyColor);
 
   // Education
@@ -115,7 +115,7 @@ async function generateResumePdf() {
   page.drawText('Apr 2022 – Apr 2023', { x: maxRight - 85, y: y, size: 8.5, font: fontRegular, color: grayColor });
   y -= 11;
   page.drawText('12th (PCM - Physics, Chemistry, Mathematics)', { x: margin, y: y, size: 8.5, font: fontRegular, color: bodyColor });
-  y -= 6;
+  y -= 5;
 
   // Technical Skills
   drawSectionTitle('Technical Skills');
@@ -129,14 +129,14 @@ async function generateResumePdf() {
     page.drawText(sk.label, { x: margin, y: y, size: 8.5, font: fontBold, color: primaryColor });
     drawWrappedText(sk.val, margin + 110, 8.5, fontRegular, bodyColor, maxRight - (margin + 110));
   }
-  y -= 2;
+  y -= 1;
 
   // Projects
   drawSectionTitle('Projects');
 
   // Project 1
   page.drawText('Event-Driven Image Labeling Pipeline', { x: margin, y: y, size: 9, font: fontBold, color: primaryColor });
-  page.drawText('| AWS: S3, SQS, Lambda, Rekognition, DynamoDB, API Gateway, SAM', { x: margin + 175, y: y, size: 7.5, font: fontOblique, color: accentColor });
+  page.drawText('| AWS: S3, SQS, Lambda, Rekognition, DynamoDB, SAM [github.com/Priyanshzx/image-label-pipeline]', { x: margin + 175, y: y, size: 7.2, font: fontOblique, color: accentColor });
   y -= 11;
   const p1Bullets = [
     'Designed & deployed a serverless, event-driven pipeline that automatically detects and labels image content using AWS Rekognition.',
@@ -151,7 +151,7 @@ async function generateResumePdf() {
 
   // Project 2
   page.drawText('Containerized Task Tracker API', { x: margin, y: y, size: 9, font: fontBold, color: primaryColor });
-  page.drawText('| AWS: ECS Fargate, ALB, DynamoDB, ECR, VPC, CloudWatch, SNS', { x: margin + 150, y: y, size: 7.5, font: fontOblique, color: accentColor });
+  page.drawText('| AWS: ECS Fargate, ALB, DynamoDB, ECR, VPC [github.com/Priyanshzx/task-tracker]', { x: margin + 150, y: y, size: 7.2, font: fontOblique, color: accentColor });
   y -= 11;
   const p2Bullets = [
     'Built and deployed a containerized FastAPI microservice (Docker multi-stage build, non-root user) on ECS Fargate behind an Application Load Balancer.',
@@ -166,7 +166,7 @@ async function generateResumePdf() {
 
   // Project 3
   page.drawText('Image Labels Generator', { x: margin, y: y, size: 9, font: fontBold, color: primaryColor });
-  page.drawText('| Python, AWS S3, Amazon Rekognition, Boto3, Pillow, Matplotlib', { x: margin + 120, y: y, size: 7.5, font: fontOblique, color: accentColor });
+  page.drawText('| Python, AWS S3, Amazon Rekognition, Boto3, Pillow, Matplotlib', { x: margin + 120, y: y, size: 7.2, font: fontOblique, color: accentColor });
   y -= 11;
   const p3Bullets = [
     'Built a Python tool that analyzes images stored in Amazon S3 using the Amazon Rekognition DetectLabels API, generating object/scene labels with confidence scores.',
@@ -176,7 +176,7 @@ async function generateResumePdf() {
     page.drawText('•', { x: margin + 4, y: y, size: 8.5, font: fontBold, color: accentColor });
     drawWrappedText(b, margin + 14, 8, fontRegular, bodyColor, maxRight - (margin + 14), 11);
   }
-  y -= 2;
+  y -= 1;
 
   // Certifications
   drawSectionTitle('Certifications & Training');
@@ -199,7 +199,7 @@ async function generateResumePdf() {
   const pdfBytes = await pdfDoc.save();
   const outputPath = path.join(process.cwd(), 'public', 'resume.pdf');
   fs.writeFileSync(outputPath, pdfBytes);
-  console.log('Successfully generated pixel-perfect resume:', outputPath);
+  console.log('Successfully generated updated resume PDF with portfolio URL:', outputPath);
 }
 
 generateResumePdf().catch(console.error);
