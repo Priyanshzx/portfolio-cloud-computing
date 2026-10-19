@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, Cloud, ExternalLink } from 'lucide-react';
+import { Menu, X, FileText, ExternalLink } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar() {
@@ -88,11 +88,13 @@ export default function Navbar() {
         {/* Brand / Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2 group text-white font-bold text-lg tracking-tight hover:text-[#FF9900] transition-colors"
+          className="flex items-center gap-2.5 group text-white font-bold text-lg tracking-tight hover:text-[#FF9900] transition-colors"
         >
-          <span className="w-8 h-8 rounded-lg bg-[#FF9900]/10 border border-[#FF9900]/30 flex items-center justify-center text-[#FF9900] group-hover:scale-105 transition-transform">
-            <Cloud className="w-4 h-4" aria-hidden="true" />
-          </span>
+          <img
+            src="/priyansh.jpg"
+            alt="Priyansh Yadav"
+            className="w-8 h-8 rounded-full border border-[#FF9900]/50 object-cover object-top group-hover:ring-2 group-hover:ring-[#FF9900]/70 transition-all shadow-sm"
+          />
           <span>{personalInfo.name}</span>
         </a>
 

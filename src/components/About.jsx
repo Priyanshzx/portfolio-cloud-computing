@@ -20,20 +20,47 @@ export default function About() {
           description="A direct look into my cloud engineering background, practical interests, and approach to building reliable systems."
         />
 
-        {/* Primary Bio Paragraph */}
+        {/* Primary Bio & Portrait Block */}
         <div className="rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-8 backdrop-blur-sm shadow-xl mb-10">
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
-            {personalInfo.aboutText}
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            
+            {/* Profile Portrait */}
+            <div className="md:col-span-4 lg:col-span-3 flex flex-col items-center text-center">
+              <div className="relative group">
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-[#FF9900]/40 to-sky-500/20 blur-sm opacity-70 group-hover:opacity-100 transition-opacity" />
+                <img
+                  src="/priyansh.jpg"
+                  alt="Priyansh Yadav - Aspiring AWS Cloud & DevOps Engineer"
+                  className="relative w-48 h-56 sm:w-52 sm:h-60 object-cover object-top rounded-2xl border-2 border-slate-700/80 shadow-2xl"
+                />
+                <span className="absolute bottom-2 right-2 flex h-3.5 w-3.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-900"></span>
+                </span>
+              </div>
+              <div className="mt-3.5">
+                <div className="text-sm font-bold text-white tracking-tight">{personalInfo.name}</div>
+                <div className="text-xs text-[#FF9900] font-mono">BCA Final-Year &bull; AWS Cloud</div>
+              </div>
+            </div>
 
-          <div className="mt-6 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
-            <span className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
-              Honest Skill Disclosure: Active learner building verifiable portfolio projects
-            </span>
-            <span className="text-slate-400">
-              Location: {personalInfo.location}
-            </span>
+            {/* Bio Content */}
+            <div className="md:col-span-8 lg:col-span-9 space-y-4">
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+                {personalInfo.aboutText}
+              </p>
+
+              <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
+                <span className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+                  Honest Skill Disclosure: Active learner building verifiable portfolio projects
+                </span>
+                <span className="text-slate-400">
+                  Location: {personalInfo.location}
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
 
