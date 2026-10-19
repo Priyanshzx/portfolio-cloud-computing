@@ -161,7 +161,7 @@ export const projects = [
     monitoring: "CloudWatch Logs and metrics track Lambda execution duration, invocation count, SQS queue depth, and DLQ errors.",
     cost: "Serverless pay-per-use architecture that naturally scales down to $0 when no images are queued for processing.",
     lessons: "Mastered asynchronous event decoupling with SQS DLQ, partial batch failure handling, and validating IaC with cfn-lint.",
-    githubUrl: "https://github.com/priyanshzx/REPLACE_WITH_PROJECT_REPOSITORY",
+    githubUrl: "https://github.com/Priyanshzx/image-label-pipeline",
     demoUrl: "#",
     demoLabel: "Demo coming soon",
     diagramType: "serverless"
